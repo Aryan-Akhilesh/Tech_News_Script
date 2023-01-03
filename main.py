@@ -10,7 +10,8 @@ news = dict()
 raw_message = ""
 
 for article in content["articles"]:
-    news[article["title"]] = article["description"] + "\n" + article["url"]
+    if article["title"] is not None:
+        news[article["title"]] = article["description"] + "\n" + article["url"]
 
 for key, value in news.items():
     raw_message += f"{key}" + "\n" + f"{value} \n \n"
